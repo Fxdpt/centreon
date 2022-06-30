@@ -1677,3 +1677,12 @@ function unvalidFormMessage()
         _("The form has not been submitted since 15 minutes. Please retry to resubmit") .
         "</div>";
 }
+
+function isNotEmptyAfterStringSanitize($test): bool
+{
+    if (empty(filter_var($test, FILTER_SANITIZE_STRING))) {
+        return false;
+    } else {
+        return true;
+    }
+}
