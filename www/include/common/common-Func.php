@@ -1686,3 +1686,18 @@ function isNotEmptyAfterStringSanitize($test): bool
         return true;
     }
 }
+
+/**
+ * Get current Centreon version
+ */
+function getCentreonVersion($pearDB)
+{
+    $query = 'SELECT `value` FROM `informations` WHERE `key` = "version"';
+    try {
+        $res = $pearDB->query($query);
+    } catch (PDOException $e) {
+        return null;
+    }
+    $row = $res->fetchRow();
+    return $row['value'];
+}
