@@ -1701,3 +1701,5 @@ function getCentreonVersion($pearDB)
     $row = $res->fetchRow();
     return $row['value'];
 }
+
+
